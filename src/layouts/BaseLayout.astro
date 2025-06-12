@@ -4,6 +4,7 @@ import "../styles/styles.scss";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 const { pageTitle } = Astro.props;
+const { description } = Astro.props;
 ---
 
 <html lang="en">
@@ -17,6 +18,7 @@ const { pageTitle } = Astro.props;
 
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
+        
         <title>{pageTitle}</title>
         <slot name="head" />
     </head>
