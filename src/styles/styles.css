@@ -1,0 +1,15 @@
+:root{
+    --bg: #1D2125;
+    --bg-soft: #22272B;
+    --text: #F7F8F9;
+    --text-soft: #F1F2F4;
+    --button: #6CC3E0;
+}
+
+body.light{
+    --bg: #F7F8F9;
+    --bg-soft: #F1F2F4;
+    --text: #1D2125;
+    --text-soft: #22272B;
+    --button: #227D9B;
+}

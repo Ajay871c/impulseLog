@@ -1,0 +1,49 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import "katex/dist/katex.min.css";
+import { Image } from "astro:assets";
+import Seo from "../components/Seo.astro";
+const { frontmatter, url } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+    <Seo
+        slot="head"
+        title={frontmatter.title}
+        description={frontmatter.description}
+        image={frontmatter.image.url}
+        url={`https://yourdomain.com${url}`}
+    />
+    <div class="single--blog--page">
+        <div class="single--top--head">
+            <div class="single--head--left">
+                <h1>{frontmatter.title}</h1>
+                <p>{frontmatter.pubDate}</p>
+                <p><em>{frontmatter.description}</em></p>
+                <p>Written by: {frontmatter.author}</p>
+                <p>
+                    Posted: {
+                        new Date(
+                            frontmatter["Published on"]
+                        ).toLocaleDateString()
+                    }
+                </p>
+                <div class="tags">
+                    {
+                        frontmatter.tags.map((tag: any) => (
+                            <a class="tag" href={`/tags/${tag}`}>
+                                {tag}
+                            </a>
+                        ))
+                    }
+                </div>
+            </div>
+            <div class="single--head--right">
+                <Image src={frontmatter.image.url} alt={frontmatter.image.alt} height={100} width={100} loading="eager"/>
+            </div>
+        </div>
+        <div class="content">
+            <slot />
+        </div>
+    </div>
+</BaseLayout>

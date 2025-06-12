@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Contact";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <div class="contact-page">
+        <div class="contact-left">
+            <h1>Let’s Talk</h1>
+            <p>
+                Got a question, feedback, or just want to say hello? I’d love to
+                hear from you! Fill out the form and I’ll get back to you soon.
+            </p>
+            <p>Want to became a Member? contact me.</p>
+            <p>Email: <small>ajaykumarmohapatra80@gmail.com</small></p>
+        </div>
+
+        <div class="contact-right">
+            <form name="contact" method="POST" action="https://formsubmit.co/ajaykumarmohapatra80@gmail.com" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact" />
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                />
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                />
+                <textarea
+                    name="message"
+                    rows="6"
+                    placeholder="Your Message"
+                    required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</BaseLayout>

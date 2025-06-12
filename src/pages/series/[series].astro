@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { slugify } from "../../utils/slugify";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+  const uniqueSeries = [
+    ...new Set(allPosts.map((post) => post.data.series).filter(Boolean)),
+  ];
+
+  return uniqueSeries.map((series) => {
+    const filteredPosts = allPosts.filter(
+      (post) => post.data.series === series
+    );
+    return {
+      params: { series: slugify(series) },
+      props: { posts: filteredPosts, rawSeries: series },
+    };
+  });
+}
+
+const { posts, rawSeries } = Astro.props;
+const sortedPosts = posts.sort(
+  (a, b) => (a.data.part ?? 0) - (b.data.part ?? 0)
+);
+---
+
+
+<BaseLayout pageTitle={`Series: ${rawSeries}`}>
+    <div class="blogs">
+        <div class="block">
+            <h2>{rawSeries}</h2>
+        </div>
+        <div class="post--list">
+            {
+                sortedPosts.map((post) => (
+                    <article class="post">
+                        <div class="image--container">
+                            <img
+                                src={post.data.image.url}
+                                alt={post.data.image.alt}
+                            />
+                        </div>
+                        <div class="content--container">
+                            <h1>
+                                <a href={`/posts/${post.id}/`}>
+                                    {post.data.part
+                                        ? `Part ${post.data.part}: `
+                                        : ""}
+                                    {post.data.title}
+                                </a>
+                            </h1>
+                            <p>{post.data.description}</p>
+                            <small>
+                                {post.data.author} –{" "}
+                                {new Date(
+                                    post.data["Published on"]
+                                ).toLocaleDateString()}
+                            </small>
+                            <div class="categories">
+                                {post.data.tags.map((tag) => (
+                                    <a href={`/tags/${tag}`} class="category">
+                                        {tag}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+    </div>
+</BaseLayout>

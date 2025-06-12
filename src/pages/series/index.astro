@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { slugify } from "../../utils/slugify";
+
+const allPosts = await getCollection("blog");
+const seriesList = [
+    ...new Set(allPosts.map((post) => post.data.series).filter(Boolean)),
+];
+const pageTitle = "All Series";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <div class="series-page">
+        <div class="block">
+            <h1>All Series</h1>
+            <p>
+                Explore ongoing or complete blog series. Each link leads to
+                related parts.
+            </p>
+        </div>
+        <ol class="series-container">
+            {
+                seriesList.map((series) => (
+                    <li class="series-item">
+                        <a href={`/series/${slugify(series)}`}>{series}</a>
+                    </li>
+                ))
+            }
+        </ol>
+    </div>
+</BaseLayout>

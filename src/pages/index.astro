@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Home";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <div class="homepage">
+        <div class="intro">
+            <h1>ImpulseLog</h1>
+            <p id="typewriter">Capturing the Spark of Scientific Thought.</p>
+
+            <div class="actions">
+                <a href="/tags" class="btn">Explore</a>
+                <a href="/contact" class="btn secondary">Contact</a>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
