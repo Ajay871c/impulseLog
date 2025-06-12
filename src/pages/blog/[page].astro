@@ -1,0 +1,130 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ImgComp from "../../components/ImgComp.astro";
+import { getCollection } from "astro:content";
+
+const POSTS_PER_PAGE = 10;
+const pageTitle = "Blogs";
+
+// 👇 Get all posts once
+const allPosts = await getCollection("blog");
+
+const sortedPosts = allPosts.sort(
+    (a, b) =>
+        new Date(b.data["Published on"]).getTime() -
+        new Date(a.data["Published on"]).getTime()
+);
+
+const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+const currentPage = parseInt(Astro.params.page);
+
+if (currentPage < 1 || currentPage > totalPages) {
+    throw new Error("Page not found");
+}
+
+const start = (currentPage - 1) * POSTS_PER_PAGE;
+const end = start + POSTS_PER_PAGE;
+const paginatedPosts = sortedPosts.slice(start, end);
+
+// ✅ This must be defined at the bottom
+export async function getStaticPaths() {
+    const POSTS_PER_PAGE = 10;
+    const posts = await getCollection("blog");
+    const total = Math.ceil(posts.length / POSTS_PER_PAGE);
+
+    return Array.from({ length: total }, (_, i) => ({
+        params: { page: String(i + 1) },
+    }));
+}
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <div class="blogs">
+        <div class="block">
+            <h3>{pageTitle}</h3>
+            <p>
+                Dive into a series of posts exploring the fascinating world of
+                physics. From foundational concepts to advanced theories, each
+                article reflects my learning journey and curiosity about how the
+                universe works.
+            </p>
+        </div>
+
+        <div class="search-wrapper">
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Search posts..."
+            />
+        </div>
+
+        <div class="post--list" id="post-list">
+            {
+                paginatedPosts.map((post) => (
+                    <article
+                        class="post"
+                        data-title={post.data.title.toLowerCase()}
+                    >
+                        <div class="image--container">
+                            <ImgComp
+                                src={post.data.image.url}
+                                alt={post.data.image.alt}
+                            />
+                        </div>
+                        <div class="content--container">
+                            <h1>
+                                <a href={`/posts/${post.id}/`}>
+                                    {post.data.title}
+                                </a>
+                            </h1>
+                            <p>{post.data.description}</p>
+                            <small>
+                                {post.data.author} –{" "}
+                                {new Date(
+                                    post.data["Published on"]
+                                ).toLocaleDateString()}
+                            </small>
+                            <div class="categories">
+                                {post.data.tags.map((tag) => (
+                                    <a href={`/tags/${tag}`} class="category">
+                                        {tag}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+
+        <div class="pagination">
+            {
+                Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                    (pageNum) => (
+                        <a
+                            href={`/blog/${pageNum}/`}
+                            class={`page-link ${pageNum === currentPage ? "active" : ""}`}
+                        >
+                            {pageNum}
+                        </a>
+                    )
+                )
+            }
+        </div>
+    </div>
+
+    <script>
+        document
+            .getElementById("search-input")
+            .addEventListener("input", function () {
+                const searchTerm = this.value.toLowerCase();
+                const posts = document.querySelectorAll(".post");
+                posts.forEach((post) => {
+                    const title = post.getAttribute("data-title");
+                    post.style.display = title.includes(searchTerm)
+                        ? "flex"
+                        : "none";
+                });
+            });
+    </script>
+</BaseLayout>
