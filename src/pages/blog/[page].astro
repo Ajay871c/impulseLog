@@ -82,7 +82,7 @@ export async function getStaticPaths() {
                                 {post.data.author} –{" "}
                                 {new Date(
                                     post.data["Published on"]
-                                ).toLocaleDateString()}
+                                ).toLocaleDateString("en-IN")}
                             </small>
                             <div class="categories">
                                 {post.data.tags.map((tag) => (
