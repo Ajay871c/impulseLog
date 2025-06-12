@@ -10,6 +10,6 @@ export default defineConfig({
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
   },
-  site: "http://localhost:4321",
+  site: "https://impulselog.vercel.app",
   integrations: [sitemap()],
 });
