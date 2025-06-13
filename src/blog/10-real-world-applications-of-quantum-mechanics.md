@@ -7,7 +7,6 @@ image:
   url: "/quantum-application.webp"
   alt: "Quantum mechanics in daily life"
 tags: ["Quantum Physics", "Application"]
-
 ---
 
 ## Introduction
