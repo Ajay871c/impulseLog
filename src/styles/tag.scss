@@ -1,0 +1,65 @@
+@use "./styles.scss" as *;
+// tags page
+.tags-page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 2rem 1rem;
+
+    h1 {
+        font-size: 32px;
+        color: $button;
+    }
+
+    p {
+        font-size: 16px;
+        color: $text-soft;
+    }
+
+    .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 1rem;
+
+        .tag {
+            background: $bg-soft;
+            border: 1px solid $button;
+            padding: 0.5rem 1rem;
+            font-size: 15px;
+            transition: background 0.3s ease;
+
+            a {
+                color: $text;
+                text-decoration: none;
+            }
+
+            &:hover {
+                background: $button;
+
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .tags-page {
+        h1 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        .tags-container {
+            .tag {
+                font-size: 14px;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    }
+}

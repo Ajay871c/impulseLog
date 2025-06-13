@@ -1,0 +1,101 @@
+@use "./styles.scss" as *;
+// blogs page
+.blogs {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .search-wrapper {
+        margin-bottom: 20px;
+
+        input {
+            width: 100%;
+            padding: 0.6rem 1rem;
+            font-size: 16px;
+            border: 1px solid $bg-soft;
+            background: $bg-soft;
+            color: $text;
+            outline: 1px solid $button;
+        }
+    }
+
+    .pagination {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin: 40px 0;
+
+        .page-link {
+            padding: 0.4rem 0.8rem;
+            border: 1px solid $bg-soft;
+            background: $bg-soft;
+            color: $text;
+            text-decoration: none;
+            border-radius: 4px;
+
+            &.active {
+                background: $button;
+                color: $bg;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .post--list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .post {
+            display: flex;
+            gap: 30px;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $bg-soft;
+
+            .image--container {
+                flex: 1;
+                height: 200px;
+                width: 100%;
+                overflow: hidden;
+                border: 1px solid $button;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .content--container {
+                flex: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+
+                h1 {
+                    color: $button;
+                    font-size: 22px;
+                }
+                p {
+                    color: $text-soft;
+                    font-size: small;
+                }
+                .categories {
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+
+                    .category {
+                        background: $bg-soft;
+                        padding: 0.4rem 1rem;
+                        font-size: 14px;
+                        flex-wrap: wrap;
+                        border: 1px solid $button;
+                    }
+                }
+            }
+        }
+    }
+}

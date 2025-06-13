@@ -1,0 +1,115 @@
+@use "../styles/styles.scss" as *;
+
+// single blog page
+.single--blog--page {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 50vw;
+    margin: auto;
+
+    .single--top--head {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+        align-items: center;
+        flex-direction: column;
+
+        .single--head--left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            h1 {
+                font-size: 36px;
+            }
+            p {
+                font-size: small;
+                font-style: italic;
+                font-weight: 300;
+                color: $text-soft;
+                opacity: 0.7;
+            }
+
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .tag {
+                    background: $bg-soft;
+                    padding: 0.4rem 1rem;
+                    border: 1px solid $button;
+                }
+            }
+        }
+        .single--head--right {
+            flex: 1;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            border: 1px solid $button;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        line-height: 30px;
+        font-size: 15px;
+        text-align: justify;
+        margin-top: 50px;
+
+        hr {
+            border: 1px solid $bg-soft;
+        }
+
+        ul,
+        ol {
+            margin-left: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 1rem;
+            font-family: "Segoe UI", sans-serif;
+
+            th,
+            td {
+                border: 1px solid $bg-soft;
+                padding: 0.75rem 1rem;
+                text-align: left;
+                vertical-align: middle;
+            }
+
+            thead {
+                background-color: $bg-soft;
+                color: $text;
+                font-weight: 600;
+            }
+
+            tbody tr:nth-child(even) {
+                background-color: $bg-soft;
+            }
+            td code,
+            th code {
+                background-color: $bg-soft;
+                padding: 0.2em 0.4em;
+                font-size: 0.95em;
+            }
+
+            // Optional: support for math
+            td span.katex {
+                display: block;
+                white-space: nowrap;
+            }
+        }
+    }
+}

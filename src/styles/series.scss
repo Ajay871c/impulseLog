@@ -1,0 +1,39 @@
+@use "./styles.scss" as *;
+
+// series page
+        .series-page {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 2rem 1rem;
+
+            h1 {
+                font-size: 32px;
+                color: var(--button);
+            }
+
+            p {
+                color: var(--text-soft);
+                font-size: 16px;
+            }
+
+            .series-container {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                margin-top: 1rem;
+            }
+
+            .series-item {
+                background: $bg-soft;
+                padding: 0.5rem 1rem;
+                border: 1px solid $button;
+                font-size: 14px;
+                width: fit-content;
+
+                a {
+                    color: $text;
+                    text-decoration: none;
+                }
+            }
+        }

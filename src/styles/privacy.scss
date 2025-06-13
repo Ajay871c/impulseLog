@@ -1,0 +1,45 @@
+@use "./styles.scss" as *;
+
+// privacy policy and terms of use
+.privacy-policy,
+.terms-of-use {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+
+    h1 {
+        font-size: 32px;
+        color: $button;
+    }
+
+    h2 {
+        font-size: 20px;
+        color: $text;
+        margin-top: 1.5rem;
+    }
+
+    .updated {
+        font-style: italic;
+        color: $text-soft;
+        font-size: 13px;
+    }
+
+    ul {
+        padding-left: 1.5rem;
+        list-style: disc;
+    }
+
+    a {
+        color: $button;
+        text-decoration: underline;
+
+        &:hover {
+            color: $button;
+        }
+    }
+}

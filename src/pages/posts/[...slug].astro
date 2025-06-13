@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
-
+import { imageConfig } from 'astro:assets';
+import "../../styles/single.scss"
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map(post => ({

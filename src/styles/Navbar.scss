@@ -1,0 +1,43 @@
+@use "./styles.scss" as *;
+
+// navbar
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    border-bottom: 1px solid $bg-soft;
+
+    .logo {
+        color: $button;
+        font-size: 24px;
+    }
+
+    .nav--links {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        list-style-type: none;
+        font-size: 14px;
+
+        #theme-toggle {
+            cursor: pointer;
+            background: $bg-soft;
+            outline: none;
+            border: none;
+
+            height: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                fill: $text;
+                path {
+                    fill: $text;
+                }
+            }
+        }
+    }
+}
