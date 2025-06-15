@@ -63,11 +63,14 @@
         gap: 20px;
         line-height: 30px;
         font-size: 15px;
-        text-align: justify;
         margin-top: 50px;
 
         hr {
             border: 1px solid $bg-soft;
+        }
+
+        p {
+            text-align: justify;
         }
 
         ul,
