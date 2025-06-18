@@ -7,7 +7,7 @@ image:
     url: "/ginzburg-landau-theory.webp"
     alt: "Visualization of the Ginzburg–Landau order parameter and superconducting coherence length"
 tags: ["Superconductivity"]
-series: "Superconductivity Blog Series"
+series: "Superconductivity"
 part: 7
 ---
 

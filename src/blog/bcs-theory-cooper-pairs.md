@@ -7,7 +7,7 @@ image:
     url: "/bcs-theory-cooper-pairs.webp"
     alt: "BCS theory illustration showing Cooper pair formation and energy gap"
 tags: ["Superconductivity"]
-series: "Superconductivity Blog Series"
+series: "Superconductivity"
 part: 8
 ---
 

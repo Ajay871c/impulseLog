@@ -7,7 +7,7 @@ image:
     url: "/london-equations-superconductivity.webp"
     alt: "Magnetic field decay in superconductors as described by London equations"
 tags: ["Superconductivity"]
-series: "Superconductivity Blog Series"
+series: "Superconductivity"
 part: 6
 ---
 
