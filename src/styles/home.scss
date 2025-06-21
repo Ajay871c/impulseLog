@@ -40,6 +40,7 @@
                 color: $bg;
                 background: $button;
                 transition: background 0.3s;
+                border-radius: 8px;
 
                 &:hover {
                     background: $button;

@@ -28,6 +28,7 @@
             padding: 0.5rem 1rem;
             font-size: 15px;
             transition: background 0.3s ease;
+            border-radius: 8px;
 
             a {
                 color: $text;
@@ -38,7 +39,7 @@
                 background: $button;
 
                 a {
-                    color: #fff;
+                    color: $bg;
                 }
             }
         }

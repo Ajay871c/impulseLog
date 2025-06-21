@@ -15,7 +15,8 @@
             border: 1px solid $bg-soft;
             background: $bg-soft;
             color: $text;
-            outline: 1px solid $button;
+            outline: none;
+            border-radius: 8px;
         }
     }
 
@@ -44,21 +45,23 @@
     .post--list {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 100px;
 
         .post {
             display: flex;
-            gap: 30px;
+            gap: 50px;
             justify-content: space-between;
-            padding-bottom: 10px;
-            border-bottom: 1px solid $bg-soft;
+
+            &:nth-child(odd){
+                flex-direction: row-reverse;
+            }
 
             .image--container {
                 flex: 1;
-                height: 200px;
+                height: 300px;
                 width: 100%;
                 overflow: hidden;
-                border: 1px solid $button;
+                border-radius: 8px;
 
                 img {
                     width: 100%;
@@ -68,14 +71,14 @@
             }
 
             .content--container {
-                flex: 2;
+                flex: 1;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 gap: 10px;
 
                 h1 {
-                    color: $button;
+                    color: $text;
                     font-size: 22px;
                 }
                 p {
@@ -92,7 +95,8 @@
                         padding: 0.4rem 1rem;
                         font-size: 14px;
                         flex-wrap: wrap;
-                        border: 1px solid $button;
+                        border: 1px solid $bg-soft;
+                        border-radius: 8px;
                     }
                 }
             }

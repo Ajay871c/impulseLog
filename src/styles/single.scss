@@ -40,6 +40,7 @@
                     background: $bg-soft;
                     padding: 0.4rem 1rem;
                     border: 1px solid $button;
+                    border-radius: 8px;
                 }
             }
         }
@@ -49,6 +50,7 @@
             height: 350px;
             overflow: hidden;
             border: 1px solid $button;
+            border-radius: 8px;
 
             img {
                 width: 100%;
