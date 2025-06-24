@@ -24,7 +24,6 @@
 
         .tag {
             background: $bg-soft;
-            border: 1px solid $button;
             padding: 0.5rem 1rem;
             font-size: 15px;
             transition: background 0.3s ease;
@@ -33,6 +32,7 @@
             a {
                 color: $text;
                 text-decoration: none;
+                font-weight: bold;
             }
 
             &:hover {

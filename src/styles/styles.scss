@@ -3,11 +3,13 @@ $bg-soft: var(--bg-soft);
 $text: var(--text);
 $text-soft: var(--text-soft);
 $button: var(--button);
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: cursive;
+    font-family: "Quicksand", sans-serif;
     letter-spacing: 1px;
 }
 body {
