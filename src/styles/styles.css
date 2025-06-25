@@ -15,3 +15,16 @@ body.light{
     --text-soft: #22272B;
     --button: #227D9B;
 }
+
+.error--container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.error--container a{
+    color: orangered;
+    font-weight: bold;
+}
