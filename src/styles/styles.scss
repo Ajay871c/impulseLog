@@ -120,21 +120,6 @@ body {
 @media (max-width: 768px) {
     body {
         .container {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-                height: auto;
-                padding: 1rem 0;
-
-                .logo {
-                    font-size: 20px;
-                }
-
-                .nav--links {
-                    flex-wrap: wrap;
-                    justify-content: center;
-                }
-            }
 
             .blogs {
                 .post--list {

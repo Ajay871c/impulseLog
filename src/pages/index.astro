@@ -1,19 +1,58 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import "../styles/home.scss"
+import "../styles/home.scss";
+import { getCollection } from "astro:content";
+
 const pageTitle = "Home";
+
+const allPosts = await getCollection("blog");
+const latestPosts = allPosts
+	.sort(
+		(a, b) =>
+			new Date(b.data["Published on"]).getTime() -
+			new Date(a.data["Published on"]).getTime()
+	)
+	.slice(0, 3);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <div class="homepage">
-        <div class="intro">
-            <h1>ImpulseLog</h1>
-            <p id="typewriter">Capturing the Spark of Scientific Thought.</p>
+	<div class="homepage">
+		<div class="intro">
+			<h1>ImpulseLog</h1>
+			<p id="typewriter">Capturing the Spark of Scientific Thought.</p>
 
-            <div class="actions">
-                <a href="/tags" class="btn">Explore</a>
-                <a href="/contact" class="btn secondary">Contact</a>
-            </div>
-        </div>
-    </div>
+			<div class="actions">
+				<a href="/tags" class="btn">Explore</a>
+				<a href="/contact" class="btn secondary">Contact</a>
+			</div>
+		</div>
+	</div>
+
+	<section class="latest-posts">
+		<h2>Latest Articles</h2>
+		<div class="post-cards">
+			{
+				latestPosts.map((post) => (
+					<article class="post-card">
+						<a href={`/posts/${post.id}`} class="card-link">
+							<img
+								src={post.data.image.url}
+								alt={post.data.title}
+								class="thumbnail"
+							/>
+							<div class="card-content">
+								<div class="meta">
+									<span class="date">
+										{new Date(post.data["Published on"]).toLocaleDateString("en-GB")}
+									</span>
+								</div>
+								<h3>{post.data.title}</h3>
+							</div>
+						</a>
+					</article>
+				))
+			}
+		</div>
+		<a href="/blog" class="btn view-all">View All Blogs</a>
+	</section>
 </BaseLayout>

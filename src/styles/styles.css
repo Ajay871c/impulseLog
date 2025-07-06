@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
-:root{
+:root {
     --bg: #1D2125;
     --bg-soft: #22272B;
     --text: #F7F8F9;
@@ -8,15 +8,30 @@
     --button: #6CC3E0;
 }
 
-body.light{
+body.light {
     --bg: #F7F8F9;
-    --bg-soft: #F1F2F4;
-    --text: #1D2125;
-    --text-soft: #22272B;
+    --bg-soft: #e8eaf0;
+    --text: #121416;
+    --text-soft: #15181a;
     --button: #227D9B;
+    font-weight: 500;
 }
 
-.error--container{
+body {
+    overflow: auto;
+    /* keep scroll functionality */
+    scrollbar-width: 1px;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer and Edge Legacy */
+}
+
+body::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.error--container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +39,7 @@ body.light{
     gap: 15px;
 }
 
-.error--container a{
+.error--container a {
     color: orangered;
     font-weight: bold;
 }
