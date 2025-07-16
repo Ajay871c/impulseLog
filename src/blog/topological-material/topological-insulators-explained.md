@@ -4,7 +4,7 @@ Published on: 2025-07-10T10:00:00.000Z
 description: "Understand the physics behind topological insulators — exotic materials that conduct electricity only on their surfaces due to quantum topology."
 author: "Ajay Kumar"
 image:
-  url: "/topological-material/topological-insulators-surface-bulk.webp"
+  url: "/topological-materials/topological-insulators-surface-bulk.webp"
   alt: "Topological insulator with conducting surface and insulating bulk"
 tags: ["Topological Insulator", "Quantum Materials", "Surface States"]
 series: "Topological Materials Series"

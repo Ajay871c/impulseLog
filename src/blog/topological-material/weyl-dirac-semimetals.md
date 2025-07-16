@@ -4,7 +4,7 @@ Published on: 2025-07-15T12:00:00.000Z
 description: "Discover Weyl and Dirac semimetals — topological phases where quasiparticles mimic high-energy fermions, giving rise to Fermi arcs, chiral anomalies, and more."
 author: "Ajay Kumar"
 image:
-  url: "/topological-material/weyl-dirac-semimetals.webp"
+  url: "/topological-materials/weyl-dirac-semimetals.webp"
   alt: "Weyl and Dirac cones in topological semimetals"
 tags: ["Weyl Semimetals", "Dirac Fermions", "Topological Materials"]
 series: "Topological Materials Series"

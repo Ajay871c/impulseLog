@@ -4,7 +4,7 @@ Published on: 2025-07-12T11:00:00.000Z
 description: "Explore the Quantum Spin Hall Effect — a time-reversal-protected topological state where spin-polarized edge currents flow without dissipation."
 author: "Ajay Kumar"
 image:
-  url: "/topological-material/quantum-spin-hall-effect.webp"
+  url: "/topological-materials/quantum-spin-hall-effect.webp"
   alt: "Quantum Spin Hall effect with spin-polarized edge states"
 tags: ["Quantum Spin Hall Effect", "Topological Insulators", "Spintronics"]
 series: "Topological Materials Series"
