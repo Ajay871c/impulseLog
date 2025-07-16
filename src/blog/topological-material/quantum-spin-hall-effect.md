@@ -7,7 +7,7 @@ image:
   url: "/topological-materials/quantum-spin-hall-effect.webp"
   alt: "Quantum Spin Hall effect with spin-polarized edge states"
 tags: ["Quantum Spin Hall Effect", "Topological Insulators", "Spintronics"]
-series: "Topological Materials Series"
+series: "Topological Materials"
 part: 5
 ---
 

@@ -7,7 +7,7 @@ image:
   url: "/topological-materials/weyl-dirac-semimetals.webp"
   alt: "Weyl and Dirac cones in topological semimetals"
 tags: ["Weyl Semimetals", "Dirac Fermions", "Topological Materials"]
-series: "Topological Materials Series"
+series: "Topological Materials"
 part: 6
 ---
 

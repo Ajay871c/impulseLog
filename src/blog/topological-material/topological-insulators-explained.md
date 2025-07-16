@@ -7,7 +7,7 @@ image:
   url: "/topological-materials/topological-insulators-surface-bulk.webp"
   alt: "Topological insulator with conducting surface and insulating bulk"
 tags: ["Topological Insulator", "Quantum Materials", "Surface States"]
-series: "Topological Materials Series"
+series: "Topological Materials"
 part: 4
 ---
 
