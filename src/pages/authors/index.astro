@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/author.scss"
+const authorFiles = import.meta.glob("/src/authors/*.md", { eager: true });
+
+// Convert imported modules to usable data
+const authors = Object.entries(authorFiles).map(([path, mod]) => {
+	const slug = path.split("/").pop().replace(".md", "");
+	const { name, bio, image } = mod.frontmatter;
+
+	return {
+		name,
+		slug,
+		bio,
+		image,
+	};
+});
+---
+
+<BaseLayout>
+	<div class="author">
+		<h1>All Authors</h1>
+		<div class="authors">
+			{
+				authors.map((author) => (
+					<div class="author-item">
+						<a href={`/authors/${author.slug}/`} class="author-card">
+							{author.image && (
+								<img
+									src={author.image.url}
+									alt={author.image.alt}
+									width="60"
+								/>
+							)}
+							<h2>{author.name}</h2>
+							<p>{author.bio}</p>
+						</a>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</BaseLayout>

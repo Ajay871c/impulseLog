@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/author.scss";
+import { slugify } from "../../utils/slugify";
+const pageTitle = "Author";
+export async function getStaticPaths() {
+	const authorFiles = import.meta.glob("/src/authors/*.md", { eager: true });
+
+	return Object.entries(authorFiles).map(([path, mod]) => {
+		const slug = path.split("/").pop().replace(".md", "");
+		return {
+			params: { slug },
+			props: {
+				author: {
+					slug,
+					...mod.frontmatter,
+				},
+			},
+		};
+	});
+}
+
+const { author } = Astro.props;
+
+// Get all blog posts
+const blogFiles = import.meta.glob("../../blog/**/*.md", { eager: true });
+
+// Filter posts written by this author
+const posts = Object.entries(blogFiles)
+	.map(([path, mod]: [string, any]) => {
+		const postAuthor = mod.frontmatter.author?.trim();
+		if (postAuthor !== author.name.trim()) {
+			console.log("No match:", postAuthor, "!=", author.name);
+			return null;
+		}
+
+		const relativePath = path.split("/blog/")[1];
+		const slug = `/posts/${relativePath.replace(/\.md$/, "")}`;
+
+		return {
+			title: mod.frontmatter.title,
+			publishedOn: mod.frontmatter["Published on"],
+			slug,
+		};
+	})
+	.filter(Boolean); 
+---
+
+<BaseLayout>
+	<div class="author">
+		<h1>{author.name}</h1>
+		<div class="img-container">
+			{
+				author.image && (
+					<img
+						class="profile"
+						src={author.image.url}
+						alt={author.image.alt}
+						width="150"
+					/>
+				)
+			}
+		</div>
+		<p class="bio">{author.bio}</p>
+
+		<h2>Posts by {author.name}</h2>
+		<div class="author-writings">
+			{
+				posts.map((post) => (
+					<article>
+						<a href={post.slug}>
+							<h3>{post.title}</h3>
+						</a>
+
+						<small>
+							{new Date(post.publishedOn).toLocaleDateString()}
+						</small>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</BaseLayout>

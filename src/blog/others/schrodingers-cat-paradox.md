@@ -2,7 +2,7 @@
 title: "The Story Behind Schrödinger’s Cat: Quantum Paradox Explained"
 Published on: 2025-06-07T08:00:00.000Z
 description: "Unravel the mystery of Schrödinger’s Cat — a thought experiment that challenges our understanding of reality, observation, and quantum superposition."
-author: "Ajay Kumar"
+author: "Vijay Kumar"
 image:
   url: "/schrodinger-cat.webp"
   alt: "Schrödinger’s cat paradox"
