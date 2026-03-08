@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://impulselog.vercel.app/sitemap-index.xml
+Sitemap: https://www.impulselog.in/sitemap-index.xml
