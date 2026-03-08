@@ -117,7 +117,7 @@
 			overflow: hidden;
 			transition: transform 0.2s ease;
 			width: 47%;
-			height: 28rem;
+			height: fit-content;
 			margin: 0px auto;
 
 			@media (max-width: 880px) {
