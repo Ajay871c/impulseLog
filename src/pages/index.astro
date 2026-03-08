@@ -12,7 +12,7 @@ const latestPosts = allPosts
 			new Date(b.data["Published on"]).getTime() -
 			new Date(a.data["Published on"]).getTime()
 	)
-	.slice(0, 3);
+	.slice(0, 4);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -47,6 +47,7 @@ const latestPosts = allPosts
 									</span>
 								</div>
 								<h3>{post.data.title}</h3>
+								<small>{post.data.description}</small>
 							</div>
 						</a>
 					</article>
